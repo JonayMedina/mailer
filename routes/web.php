@@ -28,6 +28,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
     Route::group(['middleware' => ['admin']], function () {
 
-        Route::get('/all-users', [UserController::class, 'index'])->name('all-users');
+        Route::prefix('users')->group(function () {
+            Route::get('/', [UserController::class, 'index'])->name('index-users');
+            Route::get('/all', [UserController::class, 'all'])->name('all-users');
+            Route::get('/show/{id}', [UserController::class, 'show'])->name('show-user');
+            Route::put('/update/{id}', [UserController::class, 'update'])->name('update-user');
+            Route::delete('/delete/{id}', [UserController::class, 'delete'])->name('delete-user');
+        });
     });
 });

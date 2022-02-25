@@ -58,7 +58,7 @@
                         @else
                             @if (Auth::user()->role->name == 'Admin')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('all-users') }}">{{ __('Users') }}</a>
+                                    <a class="nav-link" href="{{ route('index-users') }}">{{ __('Users') }}</a>
                                 </li>
                             @endif
                             <li class="nav-item dropdown">
@@ -68,8 +68,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                 document.getElementById('logout-form').submit();">
+
+                                    <a class="dropdown-item" href="{{ route('profile') }}">
+                                        {{ __('Profile') }}
+                                    </a>
+                                    <a class="dropdown-item red" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -77,9 +81,6 @@
                                         class="d-none">
                                         @csrf
                                     </form>
-                                    <a class="dropdown-item" href="{{ route('profile') }}">
-                                        {{ __('Profile') }}
-                                    </a>
                                 </div>
                             </li>
                         @endguest

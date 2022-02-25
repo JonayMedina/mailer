@@ -22,5 +22,8 @@
         "vue": "^2.6.12",
         "vue-loader": "^15.9.7",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "laravel-vue-pagination": "file:D:/Downloads/lavue-pag-2.3.2"
     }
 }
